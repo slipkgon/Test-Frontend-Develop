@@ -287,6 +287,11 @@ const containsSpecialChars = (event, type) => {
                                 @keypress="checkNumber($event, 3)"
                                 class="border border-[var(--bg)]  bg-[var(--color)] focus:ring-[var(--bg)] focus:border-[var(--bg)] text-sm rounded-lg  block w-full p-2.5"
                                 required />
+                            <div v-for="row in formdata.Bank.error" :key="row.texterror">
+                                <div v-if="row.type == 1" class="p-1 bg-red-500 shadow rounded m-1 text-gray-100">
+                                    <li class="text-xs">{{ row.texterror }}</li>
+                                </div>
+                            </div>
                             <div v-for="(row, i) in bankdata" :key="row.Name" @click="formdata.Bank.data = i + 1"
                                 :class="formdata.Bank.data == i + 1 ? 'bg-[var(--textcolor)] text-[var(--color)]' : ''"
                                 class="mt-2 mx-1 flex shadow p-2 rounded-md items-center hover:bg-[var(--textcolor)] hover:text-[var(--color)] cursor-pointer select-none">
@@ -299,13 +304,9 @@ const containsSpecialChars = (event, type) => {
                                 </div>
                             </div>
                         </div>
-                        <div class="">
-                            <div v-for="row in formdata.Bank.error" :key="row.texterror">
-                                <div v-if="row.type == 1" class="p-1 bg-red-500 shadow rounded m-1 text-gray-100">
-                                    <li class="text-xs">{{ row.texterror }}</li>
-                                </div>
-                            </div>
-                        </div>
+
+
+
                     </div>
 
                     <button type="submit"
@@ -344,17 +345,17 @@ const containsSpecialChars = (event, type) => {
                                     </div>
 
                                     <div>
-                                        <b>ธนาคาร :</b>
+                                        <b>ธนาคาร : {{ formdata.Bank.data ? '' : 'ยังไม่ทำการเลือก' }}</b>
                                     </div>
-                                    <div
-                                        class="mt-2 mx-1 flex shadow p-2 rounded-md items-center  select-none">
+                                    <div class="mt-2 mx-1 flex shadow p-2 rounded-md items-center  select-none"
+                                        v-if="formdata.Bank.data">
                                         <div class="w-fit mr-2">
                                             <nuxt-img format="webp" class="rounded-lg m-auto h-10 shadow "
-                                                :src="bankdata[formdata.Bank.data-1].Img"
-                                                :alt="bankdata[formdata.Bank.data-1].Name" />
+                                                :src="bankdata[formdata.Bank.data - 1].Img"
+                                                :alt="bankdata[formdata.Bank.data - 1].Name" />
                                         </div>
                                         <div>
-                                            <span>{{ bankdata[formdata.Bank.data-1].Name }}</span>
+                                            <span>{{ bankdata[formdata.Bank.data - 1].Name }}</span>
                                         </div>
                                     </div>
                                     <div class="mt-4">
