@@ -17,7 +17,7 @@ useHead({
 </script>
 
 <template>
-    <div v-if="data[id]>
+    <div >
         <div>
             <nuxt-img format="webp" class=" m-auto max-h-[32rem] rounded-none  lg:rounded-md" :src="data[id].img || '/img1.jpeg'" :alt="data[id].title" />
         </div>
