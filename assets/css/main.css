@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Sarabun', sans-serif;
+  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--textcolor);
+}
+
+::-webkit-scrollbar {
+  width: 0.4em;
+  height: 0.4em;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--button);
+
+  border-radius: 20px;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.1s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+
+}
+
+:root {
+  --color: #ffffff;
+  --textcolor: #1f63f8;
+  --bg: #6897fb;
+  --bgo: rgba(255, 255, 255, 0.766);
+  --bgx: #141c2b;
+  --button: #0051ff;
+}
+
+.red-dark {
+  --color: #212121;
+  --textcolor: rgb(255, 118, 138);
+  --bg: #e86579;
+  --bgo: rgba(254, 64, 64, 0.745);
+  --bgx: #d2d2d2;
+  --button: #d1364d;
+}
+
+.blue-white {
+  --color: #ffffff;
+  --textcolor: #1f63f8;
+  --bg: #6897fb;
+  --bgo: rgba(255, 255, 255, 0.766);
+  --bgx: #141c2b;
+  --button: #0051ff;
+}
+
+.dark-gold {
+  --color: #f1e7d0;
+  --textcolor: #1a1a1a;
+  --bg: #2a2a2a;
+  --bgo: rgba(42, 42, 42, 0.778);
+  --bgx: #232222;
+  --button: #1a1a1a;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--color);
+  
+  /*transition: background-color 0.3s;*/
+}
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
