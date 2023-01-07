@@ -5,12 +5,12 @@ const { id } = useRoute().params;
 const { data } = useCounterStore();
 
 useHead({
-    title: data[id].title,
+    title: data[id].title || 'ไม่พบข้อมูล',
     meta: [
         {
             hid: "description",
             name: "description",
-            content: "แนะนำสถานที่เที่ยว จังหวัดอุทัยธานี "+data[id].title,
+            content: "แนะนำสถานที่เที่ยว จังหวัดอุทัยธานี "+data[id].title || '',
         },
     ],
 })
